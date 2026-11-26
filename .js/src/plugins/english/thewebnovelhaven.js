@@ -12,7 +12,7 @@ class TheWebNovelHaven {
     this.name = 'The Web Novel Haven';
     this.icon = 'src/en/thewebnovelhaven/icon.png';
     this.site = SITE;
-    this.version = '1.0.1';
+    this.version = '1.0.2';
     this.filters = undefined;
   }
 
@@ -217,13 +217,12 @@ class TheWebNovelHaven {
     const raw = value.trim().split(/[?#]/)[0];
     if (!raw) return '/';
     if (/^https?:\/\//i.test(raw)) {
-      try {
-        const url = new URL(raw);
-        if (url.hostname !== new URL(this.site).hostname) return raw;
-        return url.pathname.endsWith('/') ? url.pathname : `${url.pathname}/`;
-      } catch (_) {
+      const match = raw.match(/^https?:\/\/([^/]+)(\/.*)?$/i);
+      if (!match || match[1].toLowerCase() !== 'thewebnovelhaven.wordpress.com') {
         return raw;
       }
+      const pathname = match[2] || '/';
+      return pathname.endsWith('/') ? pathname : `${pathname}/`;
     }
     const path = raw.startsWith('/') ? raw : `/${raw}`;
     return path.endsWith('/') ? path : `${path}/`;
