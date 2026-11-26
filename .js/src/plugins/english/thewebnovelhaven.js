@@ -12,7 +12,7 @@ class TheWebNovelHaven {
     this.name = 'The Web Novel Haven';
     this.icon = 'src/en/thewebnovelhaven/icon.png';
     this.site = SITE;
-    this.version = '1.0.3';
+    this.version = '1.0.4';
     this.filters = undefined;
   }
 
@@ -111,6 +111,9 @@ class TheWebNovelHaven {
     const seen = new Set();
 
     $('.entry-content a[href]').each((_, element) => {
+      if ($(element).closest('.comments-area, .comment-list, .comment-content, li.comment').length) {
+        return;
+      }
       const href = this.toPath($(element).attr('href') || '');
       const name = this.normalizeText($(element).text());
       if (
