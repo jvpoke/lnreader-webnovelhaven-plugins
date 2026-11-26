@@ -12,7 +12,7 @@ class TheWebNovelHaven {
     this.name = 'The Web Novel Haven';
     this.icon = 'src/en/thewebnovelhaven/icon.png';
     this.site = SITE;
-    this.version = '1.0.0';
+    this.version = '1.0.1';
     this.filters = undefined;
   }
 
@@ -234,4 +234,4 @@ class TheWebNovelHaven {
   }
 }
 
-module.exports.default = new TheWebNovelHaven();
+exports.default = new TheWebNovelHaven();
