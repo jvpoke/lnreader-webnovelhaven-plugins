@@ -12,7 +12,7 @@ class TheWebNovelHaven {
     this.name = 'The Web Novel Haven';
     this.icon = 'src/en/thewebnovelhaven/icon.png';
     this.site = SITE;
-    this.version = '1.0.2';
+    this.version = '1.0.3';
     this.filters = undefined;
   }
 
@@ -121,20 +121,17 @@ class TheWebNovelHaven {
         !seen.has(href)
       ) {
         seen.add(href);
-        novels.push({ name, path: href });
+        const figure = $(element).closest('figure');
+        const cover = figure.find('img[src]').first().attr('src');
+        novels.push({ name, path: href, cover });
       }
     });
 
-    const parsed = [];
-    for (const novel of novels) {
-      try {
-        const item = await this.parseNovel(novel.path);
-        parsed.push({ name: item.name, path: item.path, cover: item.cover });
-      } catch (_) {
-        // The catalogue contains occasional retired or incomplete entries.
-      }
-    }
-    return parsed;
+    // Do not parse every novel here. The catalogue page is only a list, and
+    // parsing all novel pages (including hundreds of chapter pages) makes the
+    // Android app time out before showing any result. Full parsing happens
+    // only when the user opens a novel.
+    return novels;
   }
 
   collectChapters($, chapters, seen) {

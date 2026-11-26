@@ -4,8 +4,8 @@
     "name": "The Web Novel Haven",
     "site": "https://thewebnovelhaven.wordpress.com/",
     "lang": "English",
-    "version": "1.0.2",
-    "url": "https://raw.githubusercontent.com/jvpoke/lnreader-webnovelhaven-plugins/v1.0.2/.js/src/plugins/english/thewebnovelhaven.js",
-    "iconUrl": "https://raw.githubusercontent.com/jvpoke/lnreader-webnovelhaven-plugins/v1.0.2/public/static/src/en/thewebnovelhaven/icon.png"
+    "version": "1.0.3",
+    "url": "https://raw.githubusercontent.com/jvpoke/lnreader-webnovelhaven-plugins/v1.0.3/.js/src/plugins/english/thewebnovelhaven.js",
+    "iconUrl": "https://raw.githubusercontent.com/jvpoke/lnreader-webnovelhaven-plugins/v1.0.3/public/static/src/en/thewebnovelhaven/icon.png"
   }
 ]
